@@ -12,6 +12,16 @@ use super::{Service, ServiceResult};
 #[derive(Debug, Clone)]
 pub struct SkillsService(Service);
 
+#[derive(Debug, Serialize)]
+struct LeaderboardQuery {
+    limit: u64,
+    offset: u64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    start_date: Option<NaiveDateTime>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    end_date: Option<NaiveDateTime>,
+}
+
 impl SkillsService {
     pub(super) fn new(service: Service) -> Self {
         Self(service)
