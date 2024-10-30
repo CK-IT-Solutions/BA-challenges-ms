@@ -6,8 +6,6 @@ alias m := migrate
 alias e := entity
 alias b := bacon
 
-set shell := ["powershell.exe", "-c"]
-
 _default:
     @just --list
 
